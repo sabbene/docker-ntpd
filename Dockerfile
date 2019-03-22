@@ -1,9 +1,7 @@
-FROM alpine:latest
+FROM centos:latest
 
-# install openntp
-RUN apk add --no-cache openntpd
-
-# use custom ntpd config file
+RUN yum -y update
+RUN yum -y install ntp
 
 # ntp port
 EXPOSE 123/udp
@@ -12,4 +10,4 @@ EXPOSE 123/udp
 HEALTHCHECK CMD ntpctl -s status || exit 1
 
 # start ntpd in the foreground
-ENTRYPOINT [ "/usr/sbin/ntpd", "-v", "-d", "-s" ]
+ENTRYPOINT [ "/usr/sbin/ntpd", "-d" ]
