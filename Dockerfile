@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM alpine:latest
 
 RUN yum -y update
 RUN yum -y install ntp
