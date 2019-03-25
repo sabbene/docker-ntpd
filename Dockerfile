@@ -1,8 +1,8 @@
-FROM alpine:latest
+FROM centos:latest
 
-RUN apk update
-RUN apk upgrade
-RUN apk add ntp
+RUN yum -y update
+RUN yum -y upgrade
+RUN yum -y install ntp
 
 # ntp port
 EXPOSE 123/udp
