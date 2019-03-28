@@ -4,6 +4,8 @@ RUN yum -y update
 RUN yum -y upgrade
 RUN yum -y install ntp
 
+RUN ln -sf /dev/stdout /var/log/ntp.log
+
 CMD [ "mkdir", "/app" ]
 
 # ntp port
