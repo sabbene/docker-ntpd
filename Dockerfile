@@ -4,9 +4,10 @@ RUN yum -y update
 RUN yum -y upgrade
 RUN yum -y install ntp
 
+CMD [ "mkdir", "/app" ]
+
 # ntp port
 EXPOSE 123/udp
-CMD [ "mkdir", "/app" ]
-COPY "start.sh" "/app/start.sh"
+
 # start ntpd in the foreground
 ENTRYPOINT [ "/app/start.sh" ]
