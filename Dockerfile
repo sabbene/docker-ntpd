@@ -6,6 +6,7 @@ RUN yum -y install ntp
 
 # ntp port
 EXPOSE 123/udp
-
+CMD [ "mkdir", "/app" ]
+COPY "start.sh" "/app/start.sh"
 # start ntpd in the foreground
-ENTRYPOINT [ "ntpdate", "-s", "time.nist.gov", ";", "/usr/sbin/ntpd", "-d" ]
+ENTRYPOINT [ "/app/start.sh" ]
