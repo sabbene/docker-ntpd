@@ -8,4 +8,5 @@ RUN yum -y install ntp
 EXPOSE 123/udp
 
 # start ntpd in the foreground
+CMD [ "ntpdate", "-s", "time.nist.gov" ]
 ENTRYPOINT [ "/usr/sbin/ntpd", "-d" ]
