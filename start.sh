@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ntpdate -s time.nist.gov
+ntpdate -s clock.he.net
 /usr/sbin/ntpd -d
